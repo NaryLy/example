@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    table, th,td
+    {border: 1px solid rgb(255, 0, 0);
+    border-collapse:initial;
+    border-width: 100%;
+    }
+    th, td{padding:5px;}
+    </style>
+</head>
+<body>
+    <script>
+        function findroot()
+        { 
+        var a=document.getElementById("va").value;
+        var b=document.getElementById("vb").value;
+        var c=document.getElementById("vc").value;
+        var det=(b*b)-(4*a*c);
+        var X1;
+        var X2;
+        var a_2;
+        var a_3;
+        var deta=-det;
+        if(det==0)
+        {
+            X1=-(b/(2*a));
+            X2=X1;
+            document.getElementById("demo").innerHTML="Both roots are the same";
+            document.getElementById("demo1").innerHTML=" X1 =  "+X1;
+            document.getElementById("demo2").innerHTML=" X2 =  "+X2;
+        }
+        else if(det>0)
+        {
+            X1=((-b)+(Math.sqrt(det)))/(2*a);
+            X2=((-b)-(Math.sqrt(det)))/(2*a);
+            document.getElementById("demo").innerHTML="There are two roots:";
+            document.getElementById("demo1").innerHTML=" X1 = "+X1;
+            document.getElementById("demo2").innerHTML=" X2 = "+X2;
+        }
+        else
+        {
+            a_2=(-b)/(2*a);
+            a_3=(Math.sqrt(deta))/(2*a);
+            document.getElementById("demo").innerHTML="The roots od equation are complex:"
+            document.getElementById("demo1").innerHTML=" X1= "+a_2+"+ i"+a_3;
+            document.getElementById("demo2").innerHTML=" X2= "+a_2+"- i"+a_3;
+        }
+        return showV();
+        } 
+        function showV()
+        {
+        var a=document.getElementById("va").value;
+        var b=document.getElementById("vb").value;
+        var c=document.getElementById("vc").value; 
+        document.getElementById("show").innerHTML=" "+a+"X^2"+" + "+b+"X"+" +"+c+"= 0" ;
+        }
+    </script>
+    <center>
+        <table>
+            <tr>
+                <td>
+                    <strong style="color: darkturquoise; border-top-width: thick;"> Equation Of Second Degree</strong>
+                    <br> ax^2 + bx + c = 0
+                    <br> a = <input type="text" id="va" oninput="findroot()">
+                    <br> b = <input type="text" id="vb" oninput="findroot()">
+                    <br> c = <input type="text" id="vc" oninput="findroot()">
+                    <p style="color: deeppink;">CALCULATE:</p>
+                    <p id="show"></p>
+                    <br><strong>Result:</strong>
+                    <p id="demo" style="color:crimson;"></p>
+                    <p id="demo1" style="color: chartreuse;"></p>
+                    <p id="demo2" style="color: chartreuse;"></p>
+                </td>
+                
+            
+            </tr>
+              </table>  
+    </center>
+ 
+</body>
+</html>
